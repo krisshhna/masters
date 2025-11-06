@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path:'tailor',
-    loadChildren:()=>import('./module/tailor/tailor.module').then((x)=>x.TailorModule)
+    loadChildren:()=>import('./module/tailor/tailor.module').then((x)=>x.TailorModule),
   },
   {
     path:'poolTable',
@@ -17,7 +17,11 @@ const routes: Routes = [
   },
   {
     path:'classes',
-    loadChildren:()=>import('./module/classes/classes.module').then((y)=>y.ClassesModule)
+    loadChildren:()=>import('./module/classes/classes.module').then((y)=>y.ClassesModule),
+  },
+  {
+    path:'testing',
+    loadChildren:()=>import('./module/testing/testing.module').then((z)=>z.TestingModule),
   },
   {path:'**', redirectTo:'home'} // this is wild card routing.
 ];
