@@ -34,6 +34,7 @@ export class TDashboardComponent {
                         label: 'Core',
                         icon: 'pi pi-bolt',
                         shortcut: '⌘+S',
+                        route:'/tailor/details'
                     },
                     {
                         label: 'Blocks',
