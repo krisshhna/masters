@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TailorRoutingModule, tComponent } from './tailor-routing.module';
+import { TestingRoutingModule, TestComponent } from './testing-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
-    tComponent,
+    TestComponent
   ],
   imports: [
     CommonModule,
-    TailorRoutingModule,
-    SharedModule,
+    TestingRoutingModule,
+    SharedModule
   ]
 })
-export class TailorModule { }
+export class TestingModule { }
