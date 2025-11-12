@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren:()=>import('./module/classes/classes.module').then((y)=>y.ClassesModule),
   },
   {
-    path:'testing',
+    path:'test',
     loadChildren:()=>import('./module/testing/testing.module').then((z)=>z.TestingModule),
   },
   {path:'**', redirectTo:'home'} // this is wild card routing.

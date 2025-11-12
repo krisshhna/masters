@@ -22,35 +22,46 @@ export class TDashboardComponent {
   ngOnInit(){
      this.items = [
             {
-                label: 'Home',
+                label: 'Test',
                 icon: 'pi pi-home',
+                route:  '/test/test1',
             },
             {
-                label: 'Projects',
-                icon: 'pi pi-search',
-                badge: '3',
-                items: [
-                    {
-                        label: 'Core',
-                        icon: 'pi pi-bolt',
-                        shortcut: '⌘+S',
-                    },
-                    {
-                        label: 'Blocks',
-                        icon: 'pi pi-server',
-                        shortcut: '⌘+B',
-                    },
-                    {
-                        separator: true,
-                    },
-                    {
-                        label: 'UI Kit',
-                        icon: 'pi pi-pencil',
-                        shortcut: '⌘+U',
-                    },
-                ],
+                label:  'Login',
+                icon:   'pi pi-home',
+                route:  '/test/login'
             },
+            {
+                label:  'Register',
+                icon:   'pi pi-home',
+                route:  '/test/register'
+            }
+            // {
+            //     label: 'Projects',
+            //     icon: 'pi pi-search',
+            //     badge: '3',
+            //     items: [
+            //         {
+            //             label: 'Core',
+            //             icon: 'pi pi-bolt',
+            //             shortcut: '⌘+S',
+            //             route:'/tailor/details'
+            //         },
+            //         {
+            //             label: 'Blocks',
+            //             icon: 'pi pi-server',
+            //             shortcut: '⌘+B',
+            //         },
+            //         {
+            //             separator: true,
+            //         },
+            //         {
+            //             label: 'UI Kit',
+            //             icon: 'pi pi-pencil',
+            //             shortcut: '⌘+U',
+            //         },
+            //     ],
+            // },
         ];
-  console.log(this.items);
   }
 }
