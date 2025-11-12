@@ -8,7 +8,6 @@ import { SLabelComponent } from './component/s-label/s-label.component';
 import { STextareaComponent } from './component/s-textarea/s-textarea.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 
 // primengModules 
 import { MenubarModule } from 'primeng/menubar';
@@ -25,7 +24,7 @@ import { MessageService } from 'primeng/api';
 @NgModule({
   declarations: [
     SLabelComponent,
-    STextareaComponent
+    STextareaComponent,
   ],
   providers:[MessageService],
   imports: [
@@ -35,7 +34,6 @@ import { MessageService } from 'primeng/api';
     ButtonModule,
 
     ReactiveFormsModule,
-    HttpClientModule,
     MenubarModule,
     BreadcrumbModule,
     StepsModule,
@@ -56,7 +54,6 @@ import { MessageService } from 'primeng/api';
     STextareaComponent,
 
     ReactiveFormsModule,
-    HttpClientModule,
 
     MenubarModule,
     BreadcrumbModule,

@@ -1,9 +1,8 @@
 .card{
     border-radius: 10px;
-    padding:10px;
     border:1px solid black;
 }
 
-::ng-deep .p-menubarsub .p-menubar-root-list .p-menubar-item{
-    padding-right:10px !important;
+::ng-deep .p-menubar-item{
+    padding:10px !important;
 }
