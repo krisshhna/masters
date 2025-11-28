@@ -1,1 +1,5 @@
-<p>t-register works!</p>
+<form [formGroup]="registerForm">
+    <app-basic-form formGroupName="basicForm"></app-basic-form>
+    <app-address formGroupName="address"></app-address>
+    <button type="button" severity="success" pButton (click)="submitRecord()" label="Submit Record" [disabled]="registerForm.invalid"></button>
+</form>

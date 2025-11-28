@@ -1,0 +1,30 @@
+<p>address works!</p>
+
+<form [formGroup]="addDetails">
+    <div formArrayName="detailAdd">
+        <div *ngFor="let df of address.controls; let j=index" [formGroupName]="j">
+            <div class="row card">
+                <label>Address1</label>
+                <input type="text" formControlName="address1"> <br/>
+            </div>
+            <div class="row">
+                <label>Address2</label>
+                <input type="text" formControlName="address2"> <br/>
+            </div>
+            <div class="row">
+                <label>City</label>
+                <input type="text" formControlName="city"> <br/>
+            </div>
+            <div class="row">
+                <label>Landmark</label>
+                <input type="text" formControlName="landmark"> <br/>
+            </div>
+            <div class="row">
+                <label>Pincode</label>
+                <input type="text" formControlName="pincode"> <br/>
+            </div>
+        </div>
+    </div>
+
+    <button pButton label="+" (click)="addAddress()"></button>
+</form>
