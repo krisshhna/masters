@@ -1,1 +1,22 @@
-<p>t-test1 works!</p>
+<div class="card flex justify-center">
+    <div class="flex flex-col gap-4">
+        <div *ngFor="let category of checks" class="flex items-center">
+            <p-checkbox [inputId]="category.key" name="group" [value]="category" [(ngModel)]="selectedCategories" (ngModelChange)="changeTab($event)" />
+            <label [for]="category.key" class="ml-2"> {{ category.name }} </label>
+        </div>
+    </div>
+</div>
+
+
+<div class="card">
+    <p-accordion [value]="0">
+        @for (tab of tabs; track tab.title) {
+            <p-accordion-panel [value]="tab.value" *ngIf="tab.status">
+                <p-accordion-header>{{ tab.title }}{{tab.status}}</p-accordion-header>
+                <p-accordion-content>
+                    <p class="m-0">{{ tab.content }} hello world another thing.</p>
+                </p-accordion-content>
+            </p-accordion-panel>
+        }
+    </p-accordion>
+</div>

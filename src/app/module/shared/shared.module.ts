@@ -7,7 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { SLabelComponent } from './component/s-label/s-label.component';
 import { STextareaComponent } from './component/s-textarea/s-textarea.component';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // primengModules 
 import { MenubarModule } from 'primeng/menubar';
@@ -20,6 +20,8 @@ import { AvatarModule } from 'primeng/avatar';
 import { InputTextModule } from 'primeng/inputtext';
 import { Ripple } from 'primeng/ripple';
 import { MessageService } from 'primeng/api';
+import { CheckboxModule } from 'primeng/checkbox';
+import { AccordionModule } from 'primeng/accordion';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,9 @@ import { MessageService } from 'primeng/api';
     AvatarModule,
     InputTextModule,
     Ripple,
+    CheckboxModule,
+    AccordionModule,
+    FormsModule,
   ],
   exports:[
     CommonModule,
@@ -64,6 +69,9 @@ import { MessageService } from 'primeng/api';
     AvatarModule,
     InputTextModule,
     Ripple,
+    CheckboxModule,
+    AccordionModule,
+    FormsModule
   ]
 })
 export class SharedModule { }

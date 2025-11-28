@@ -4,6 +4,9 @@ import { TDashboardComponent } from './component/t-dashboard/t-dashboard.compone
 import { TTest1Component } from './component/t-test1/t-test1.component';
 import { TLoginComponent } from './component/t-login/t-login.component';
 import { TRegisterComponent } from './component/t-register/t-register.component';
+import { BasicFormComponent } from './component/register/basic-form/basic-form.component';
+import { AddressComponent } from './component/register/address/address.component';
+import { ProfessionalComponent } from './component/register/professional/professional.component';
 
 const routes: Routes = [
   {
@@ -23,5 +26,5 @@ const routes: Routes = [
 })
 export class TestingRoutingModule { }
 export const TestComponent = [
-  TDashboardComponent, TTest1Component, TLoginComponent, TRegisterComponent
+  TDashboardComponent, TTest1Component, TLoginComponent, TRegisterComponent, BasicFormComponent, AddressComponent, ProfessionalComponent
 ];

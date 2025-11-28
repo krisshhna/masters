@@ -1,9 +1,6 @@
-/* PrimeIcons */
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* PrimeIcons CSS */
 @import "primeicons/primeicons.css";
-
-/* Core PrimeNG CSS */
-// @import "primeng/resources/primeng.css";
-
-/* Theme of your choice from @primeng/themes */
-// @import "@primeng/themes/aura/theme.css";
