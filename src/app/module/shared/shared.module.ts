@@ -22,6 +22,9 @@ import { Ripple } from 'primeng/ripple';
 import { MessageService } from 'primeng/api';
 import { CheckboxModule } from 'primeng/checkbox';
 import { AccordionModule } from 'primeng/accordion';
+import { MessageModule } from 'primeng/message';
+import { SelectModule } from 'primeng/select';
+import { TagModule } from 'primeng/tag';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,9 @@ import { AccordionModule } from 'primeng/accordion';
     Ripple,
     CheckboxModule,
     AccordionModule,
+    TagModule,
+    MessageModule,
+    SelectModule,
     FormsModule,
   ],
   exports:[
@@ -71,6 +77,9 @@ import { AccordionModule } from 'primeng/accordion';
     Ripple,
     CheckboxModule,
     AccordionModule,
+    TagModule,
+    MessageModule,
+    SelectModule,
     FormsModule
   ]
 })

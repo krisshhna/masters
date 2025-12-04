@@ -6,17 +6,82 @@
         </div>
     </div>
 </div>
-
-
+<form [formGroup]="testingForm">
 <div class="card">
     <p-accordion [value]="0">
         @for (tab of tabs; track tab.title) {
-            <p-accordion-panel [value]="tab.value" *ngIf="tab.status">
-                <p-accordion-header>{{ tab.title }}{{tab.status}}</p-accordion-header>
-                <p-accordion-content>
-                    <p class="m-0">{{ tab.content }} hello world another thing.</p>
-                </p-accordion-content>
-            </p-accordion-panel>
+            @switch(tab.formName){
+                @case('basicForm'){
+                    <p-accordion-panel [value]="tab.value" *ngIf="tab.status">
+                            <ng-container>
+                                <p-accordion-header>{{ tab.title }} {{testingForm.get('basicForm')?.status === 'VALID' ? 'done' :'' }} </p-accordion-header>
+                                <p-accordion-content>
+                                    <app-t-basic-form formGroupName="basicForm">
+                                        <p-tag severity="warn" value="Basic Form" />
+                                    </app-t-basic-form>
+                                </p-accordion-content>
+                            </ng-container>
+                    </p-accordion-panel>
+                }
+
+                @case('accForm'){
+                    <p-accordion-panel [value]="tab.value" *ngIf="tab.status" formGroupName="accForm">
+                            <ng-container>
+                                <p-accordion-header>{{ tab.title }} </p-accordion-header>
+                                <p-accordion-content>
+                                    <input type="text" formControlName="fName" [placeholder]="tab.title">
+                                </p-accordion-content>
+                            </ng-container>
+                    </p-accordion-panel>
+                }
+
+                @case('markForm'){
+                    <p-accordion-panel [value]="tab.value" *ngIf="tab.status" formGroupName="markForm">
+                            <ng-container>
+                                <p-accordion-header>{{ tab.title }} </p-accordion-header>
+                                <p-accordion-content>
+                                    <input type="text" formControlName="lName" [placeholder]="tab.title">
+                                </p-accordion-content>
+                            </ng-container>
+                    </p-accordion-panel>
+                }
+
+                @case('prodForm'){
+                    <p-accordion-panel [value]="tab.value" *ngIf="tab.status" formGroupName="prodForm">
+                            <ng-container>
+                                <p-accordion-header>{{ tab.title }} </p-accordion-header>
+                                <p-accordion-content>
+                                    <input type="text" formControlName="email" [placeholder]="tab.title">
+                                </p-accordion-content>
+                            </ng-container>
+                    </p-accordion-panel>
+                }
+
+                @case('resForm'){
+                    <p-accordion-panel [value]="tab.value" *ngIf="tab.status" formGroupName="resForm">
+                            <ng-container>
+                                <p-accordion-header>{{ tab.title }} </p-accordion-header>
+                                <p-accordion-content>
+                                    <input type="text" formControlName="phone" [placeholder]="tab.title">
+                                </p-accordion-content>
+                            </ng-container>
+                    </p-accordion-panel>
+                }
+
+                @case('decForm'){
+                    <p-accordion-panel [value]="tab.value" *ngIf="tab.status" formGroupName="decForm">
+                            <ng-container>
+                                <p-accordion-header>{{ tab.title }} </p-accordion-header>
+                                <p-accordion-content>
+                                    <input type="text" formControlName="dec" [placeholder]="tab.title">
+                                </p-accordion-content>
+                            </ng-container>
+                    </p-accordion-panel>
+                }
+            }
         }
     </p-accordion>
 </div>
+
+<button pButton label="Save" (click)="submitForm()">{{testingForm.status}}</button>
+</form>

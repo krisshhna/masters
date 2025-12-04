@@ -4,25 +4,33 @@
     <div formArrayName="detailAdd">
         <div *ngFor="let df of address.controls; let j=index" [formGroupName]="j">
             <div class="row card">
-                <label>Address1</label>
-                <input type="text" formControlName="address1"> <br/>
+                <label>Address {{j + 1}}</label><br/>
+                <input type="text" formControlName="address1" placeholder="Address 1"> <br/>
             </div>
             <div class="row">
-                <label>Address2</label>
-                <input type="text" formControlName="address2"> <br/>
+                <label>Address2</label><br/>
+                <input type="text" formControlName="address2" placeholder="Address 2"> <br/>
             </div>
             <div class="row">
-                <label>City</label>
-                <input type="text" formControlName="city"> <br/>
+                <label>City</label><br/>
+                <input type="text" formControlName="city" placeholder="City"> <br/>
             </div>
             <div class="row">
-                <label>Landmark</label>
-                <input type="text" formControlName="landmark"> <br/>
+                <label>Landmark</label><br/>
+                <input type="text" formControlName="landmark" placeholder="Landmark"> <br/>
             </div>
-            <div class="row">
-                <label>Pincode</label>
-                <input type="text" formControlName="pincode"> <br/>
+            <!-- <div class="row">
+                <label>Pincode</label><br/>
+                <input type="text" pInputText formControlName="pincode" placeholder="Pincode"> <br/>
+            </div> -->
+
+            <div class="flex flex-col gap-2">
+                <label for="username">Pincode</label><br/>
+                <input id="username" placeholder="text" aria-describedby="username-help" formControlName="pincode"/>
+                <small id="username-help">Enter your username to reset your password.</small>
             </div>
+
+            <hr>
         </div>
     </div>
 
