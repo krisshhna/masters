@@ -1,0 +1,16 @@
+<div class="container">
+    <ng-content></ng-content>
+
+    <form [formGroup]="decForm">
+        <div class="row-container">
+            <div formArrayName="dec">
+                <div *ngFor="let d of dec.controls; let i=index" [formGroupName]="i">
+                    <div class="row">
+                        <label>{{dec.at(i).get('label')?.value}}</label>
+                        <input type="checkbox" formControlName="name">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

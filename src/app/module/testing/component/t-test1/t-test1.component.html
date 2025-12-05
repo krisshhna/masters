@@ -69,11 +69,13 @@
                 }
 
                 @case('decForm'){
-                    <p-accordion-panel [value]="tab.value" *ngIf="tab.status" formGroupName="decForm">
+                    <p-accordion-panel [value]="tab.value" *ngIf="tab.status">
                             <ng-container>
                                 <p-accordion-header>{{ tab.title }} </p-accordion-header>
                                 <p-accordion-content>
-                                    <input type="text" formControlName="dec" [placeholder]="tab.title">
+                                    <app-t-declaration formGroupName="decForm">
+                                        <h4>Declaration</h4>
+                                    </app-t-declaration>
                                 </p-accordion-content>
                             </ng-container>
                     </p-accordion-panel>

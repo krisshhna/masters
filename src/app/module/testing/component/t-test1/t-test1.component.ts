@@ -44,7 +44,7 @@ export class TTest1Component {
       markForm:   this.fb.group({lName:['',[Validators.required]]}),
       prodForm:   this.fb.group({email:['',[Validators.required]]}),
       resForm:    this.fb.group({phone:['',[Validators.required]]}),
-      decForm:    this.fb.group({dec:['',[Validators.required]]}),
+      decForm:    this.fb.group({dec: this.fb.array([])}),
     });
   }
 

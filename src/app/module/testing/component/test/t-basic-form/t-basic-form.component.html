@@ -1,0 +1,95 @@
+<ng-content></ng-content>
+
+<form [formGroup]="comBasicForm">
+    <div formGroupName="details">
+        <div class="row-container">
+            <div class="row">
+                <label>fName</label>
+                <input type="text" formControlName="fName">
+                <p-message *ngIf="comBasicForm.get('details.fName')?.touched &&  comBasicForm.get('details.fName')?.invalid" severity="error" value="First Name should be entered" />
+            </div>
+
+            <div class="row">
+                <label>lName</label>
+                <input type="text" formControlName="lName">
+                <p-message *ngIf="comBasicForm.get('details.lName')?.touched &&  comBasicForm.get('details.lName')?.invalid" severity="error" value="Last Name should be entered" />
+            </div>
+
+            <div class="row">
+                <label>Phone</label>
+                <input type="text" formControlName="phone">
+                <p-message *ngIf="comBasicForm.get('details.phone')?.touched &&  comBasicForm.get('details.phone')?.invalid" severity="error" value="Phone number should be provided" />
+            </div>
+
+            <div class="row">
+                <label>Email</label>
+                <input type="text" formControlName="email">
+                <p-message *ngIf="comBasicForm.get('details.email')?.touched &&  comBasicForm.get('details.email')?.invalid" severity="error" value="Email-id should be entered" />
+            </div>
+        </div>
+        <br/>
+
+        <br/>
+    </div>
+
+    <div formArrayName="address">
+        <div *ngFor="let ad of address.controls; let i=index" [formGroupName]="i">
+             <h2>{{ address.at(i).get('name')?.value }}</h2>
+            <div class="row-container">
+                <div class="row">
+                    <label>Address</label>
+                    <input type="text" formControlName="address1">
+                </div>
+
+                <div class="row">
+                    <label>Landmark</label>
+                    <input type="text" formControlName="landmark">
+                </div>
+
+                <div class="row">
+                    <label>Pincode</label>
+                    <input type="text" formControlName="pincode">
+                </div>
+            </div>
+            <br/>
+
+            <div class="row-container">
+
+                <div class="row">
+                    <p-select formControlName="documents" [options]="allList" optionLabel="name" placeholder="Select Documents" (onChange)="showSelected($event,i)" class="w-full md:w-56"/>
+                </div>
+                <ng-container *ngIf="ad.get('documents')?.value?.code === 'ind'">
+                    <div class="row">
+                        <label>PanCard</label>
+                        <input type="text" formControlName="docPan">
+                    </div>
+
+                    <div class="row">
+                        <label>AadharCard</label>
+                        <input type="text" formControlName="docAdhar">
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="ad.get('documents')?.value?.code === 'nri'">
+                    <div class="row">
+                        <label>Passport</label>
+                        <input type="text" formControlName="docPassport">
+                    </div>
+                </ng-container>
+
+                <div class="row">
+                    <label>State</label>
+                    <input type="text" formControlName="state">
+                </div>
+
+                <div class="row">
+                    <label>City</label>
+                    <input type="text" formControlName="city">
+                </div>
+            </div>
+            
+            <br/>
+            <button p-button *ngIf="i===0">Same as The Above</button>
+        </div>
+    </div>
+</form>
