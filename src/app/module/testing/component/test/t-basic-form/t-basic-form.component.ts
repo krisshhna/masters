@@ -12,11 +12,19 @@ export class TBasicFormComponent {
   comBasicForm!:FormGroup;
   addDetail = [{name:'Current Address'},{name:'Permanent Address'}];
   allList = [{name:'Indian', code:'ind'}, {name:'NRI', code:'nri'}];
+
+  eduList = [{name:'school', code:'ssc', details:[{name:'SSC', code:'ssc'}]}, 
+             {name:'High School', code:'hsc', details:[{name:'HSC', code:'hsc'}]}, 
+             {name:'Graduation', code:'degree', details:[{name:'First Year', code:'fyi'}, {name:'Second Year', code:'sy'}, {name:'Third Year', code:'ty'}]},
+             {name:'Engineering', code:'eng', details:[{name:'Eng 1st Year', code:'EFY'}, {name:'Eng 2nd Year', code:'ESY'}, {name:'Eng 3rd Year', code:'ETY'}, {name:'Eng Final Year', code:'final'}]}];
+
   constructor(public fb:FormBuilder, public fgd:FormGroupDirective){}
 
   ngOnInit(){
     this.comBasicForm = this.fgd.control.get(this.formGroupName) as FormGroup;
     this.addAddress(this.addDetail);
+    this.addEducation();
+    this.addBankDet();
   }
 
   addAddress(numb:any){
@@ -63,12 +71,56 @@ export class TBasicFormComponent {
         this.address.controls[index].get('docAdhar')?.updateValueAndValidity();
         this.address.controls[index].get('docPassport')?.updateValueAndValidity();
   }
+  
+  get education(){
+    return this.comBasicForm.controls['education'] as FormArray;
+  }
 
-  // get bankDet(){
-  //   return this.comBasicForm.controls['bankDet'] as FormArray;
-  // }
+  addEducation(){
+    this.eduList.forEach((elem:any)=>{
+      this.education.push(this.fb.group({
+        label:  [elem.name],
+        value:  ['',[Validators.required]],
+        edudet: this.fb.array([]),
+      }));
+    })
+  }
 
-  // get education(){
-  //   return this.comBasicForm.controls['education'] as FormArray;
-  // }
+  edudet(i:number){
+    return this.education.at(i).get('edudet') as FormArray;
+  } 
+
+  addEduDet(record:any, i:number){
+    const detsArr = this.edudet(i);
+
+    record.forEach((elem:any)=>{
+      detsArr.push(
+        this.fb.group({
+          label:  [elem.name],
+          value:  ['',[Validators.required]],
+        })
+      )
+    })
+
+    console.log(this.comBasicForm);
+  }
+
+  educDetails(evnt:any, ind:number){
+    this.edudet(ind).clear();
+    if(evnt.value?.details.length>0){
+      this.addEduDet(evnt.value?.details, ind);
+    }
+  }
+  get bankDet(){
+    return this.comBasicForm.controls['bankDet'] as FormArray;
+  }
+
+  addBankDet(){
+    this.bankDet.push(this.fb.group({
+      bankName:   ['',[Validators.required]],
+      accholder:  ['',[Validators.required]],
+      accNumb:    ['',[Validators.required]],
+      ifscCode:   ['',[Validators.required]],
+    }));
+  }
 }

@@ -31,6 +31,33 @@
 
         <br/>
     </div>
+    <hr>
+
+    <div formArrayName="education">
+       
+            <div *ngFor="let edu of education.controls; let j=index" [formGroupName]="j">
+                    <div>
+                        <p-select 
+                        formControlName="value" 
+                        [options]="eduList" 
+                        optionLabel="name" 
+                        placeholder="Education Details" 
+                        (onChange)="educDetails($event,j)" class="w-full md:w-56"/>
+
+                        <div formArrayName="edudet">
+                            <div class="row-container">
+                                 <div *ngFor="let de of edudet(j).controls; let k=index" [formGroupName]="k">
+                                    <div class="row">
+                                        <label>{{edudet(j).at(k).get('label')?.value}} : </label>
+                                        <input type="text" formGroupName="value">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+    <hr>
 
     <div formArrayName="address">
         <div *ngFor="let ad of address.controls; let i=index" [formGroupName]="i">
@@ -90,6 +117,36 @@
             
             <br/>
             <button p-button *ngIf="i===0">Same as The Above</button>
+        </div>
+    </div>
+    <hr>
+    
+    <div formArrayName="bankDet">
+        <div *ngFor="let bank of bankDet.controls; let l=index" [formGroupName]="l">
+            <div class="row-container">
+                <div class="row">
+                    <label>Account Holder Name</label>
+                    <input type="text" formControlName="accholder">
+                </div>
+
+                <div class="row">
+                    <label>Bank Name</label>
+                    <input type="text" formControlName="bankName">
+                </div>
+
+                <div class="row">
+                    <label>Account Number</label>
+                    <input type="text" formControlName="accNumb">
+                </div>
+
+                <div class="row">
+                    <label>IFSC Code</label>
+                    <input type="text" formControlName="ifscCode">
+                </div>
+            </div>
+
+            <br/>
+            <hr>
         </div>
     </div>
 </form>
