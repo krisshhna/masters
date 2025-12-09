@@ -23,7 +23,7 @@ const routes: Routes = [
     path:'test',
     loadChildren:()=>import('./module/testing/testing.module').then((z)=>z.TestingModule),
   },
-  {path:'**', redirectTo:'home'} // this is wild card routing.
+  {path:'**', redirectTo:'test/test1'} // this is wild card routing.
 ];
 
 @NgModule({

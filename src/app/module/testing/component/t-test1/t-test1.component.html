@@ -25,11 +25,14 @@
                 }
 
                 @case('accForm'){
-                    <p-accordion-panel [value]="tab.value" *ngIf="tab.status" formGroupName="accForm">
+                    <p-accordion-panel [value]="tab.value" *ngIf="tab.status">
                             <ng-container>
                                 <p-accordion-header>{{ tab.title }} </p-accordion-header>
                                 <p-accordion-content>
-                                    <input type="text" formControlName="fName" [placeholder]="tab.title">
+                                    <app-t-acc-form formGroupName="accForm">
+                                        <h3 top>Accounts</h3>
+                                        <h3 bottom>Bottom</h3>
+                                    </app-t-acc-form>
                                 </p-accordion-content>
                             </ng-container>
                     </p-accordion-panel>

@@ -40,7 +40,9 @@ export class TTest1Component {
         education:this.fb.array([]),
         bankDet:  this.fb.array([]),
       }),
-      accForm:    this.fb.group({fName:['',[Validators.required]]}),
+      accForm:    this.fb.group({
+        accoounts:this.fb.array([]),
+      }),
       markForm:   this.fb.group({lName:['',[Validators.required]]}),
       prodForm:   this.fb.group({email:['',[Validators.required]]}),
       resForm:    this.fb.group({phone:['',[Validators.required]]}),
@@ -49,7 +51,7 @@ export class TTest1Component {
   }
 
   ngOnInit() {
-      this.selectedCategories = [this.checks[1]];
+      this.selectedCategories = [this.checks[0]];
       this.changeTab(this.selectedCategories);
   }
 
