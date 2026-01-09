@@ -22,6 +22,7 @@ export class TDeclarationComponent {
   }
 
   addDec(){
+    this.dec.clear();
     this.decList.forEach((elem:decInter)=>{
       this.dec.push(this.fb.group({
         label:  [elem.title],

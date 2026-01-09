@@ -1,31 +1,20 @@
-<ng-content select="h3[top]"></ng-content>
-
-<form [formGroup]="accountsForms">
-    <div formArrayName="accoounts">
-        <div *ngFor="let acc of accoounts.controls; let i=index" [formGroupName]="i">
-            <div class="row-container">
+<ng-content select="[top]"></ng-content>
+<form [formGroup]="formAccounts">
+    <div formArrayName="acounts">
+        <div *ngFor="let ac of allAccounts.controls; let i=index" [formGroupName]="i">
+            <div class="">
                 <div class="row">
-                    <label>{{acc.get('totLabel')?.value}}</label>
-                    <input type="text" formControlName="totalAmt" (change)="total()">
-                </div>
-
-                <div class="row">
-                    <label>{{acc.get('balLabel')?.value}}</label>
-                    <input type="text" formControlName="balAmt" (change)="total()">
-                </div>
-
-                <div class="row">
-                    <label>{{acc.get('penLabel')?.value}}</label>
-                    <input type="text" formControlName="pendAmt" [value]="acc.get('totalAmt')?.value - acc.get('balAmt')?.value">
+                    <label style="font-size: larger;">{{allAccounts.at(i).get('labels')?.value}}</label>
+                    <div formArrayName="labelArray">
+                        <div class="row-container">
+                             <div *ngFor="let acLa of allLabelArray(i).controls; let k=index" [formGroupName]="k">
+                                <input type="text" formControlName="details">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <hr>
         </div>
-
-        <h3>Total {{totalAmounts}}</h3>
     </div>
-
-    <button p-button label="+" (click)="addAccounts()"></button>
 </form>
-
-<ng-content select="h3[bottom]"></ng-content>
+<ng-content select="[bottom]"></ng-content>

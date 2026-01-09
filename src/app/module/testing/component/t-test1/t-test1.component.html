@@ -14,7 +14,7 @@
                 @case('basicForm'){
                     <p-accordion-panel [value]="tab.value" *ngIf="tab.status">
                             <ng-container>
-                                <p-accordion-header>{{ tab.title }} {{testingForm.get('basicForm')?.status === 'VALID' ? 'done' :'' }} </p-accordion-header>
+                                <p-accordion-header>{{ tab.title }} {{testingForm.get('basicForm')?.status}} </p-accordion-header>
                                 <p-accordion-content>
                                     <app-t-basic-form formGroupName="basicForm">
                                         <p-tag severity="warn" value="Basic Form" />
@@ -27,7 +27,7 @@
                 @case('accForm'){
                     <p-accordion-panel [value]="tab.value" *ngIf="tab.status">
                             <ng-container>
-                                <p-accordion-header>{{ tab.title }} </p-accordion-header>
+                                <p-accordion-header>{{ tab.title }} {{testingForm.get('accForm')?.status}} </p-accordion-header>
                                 <p-accordion-content>
                                     <app-t-acc-form formGroupName="accForm">
                                         <h3 top>Accounts</h3>
@@ -43,7 +43,10 @@
                             <ng-container>
                                 <p-accordion-header>{{ tab.title }} </p-accordion-header>
                                 <p-accordion-content>
-                                    <input type="text" formControlName="lName" [placeholder]="tab.title">
+                                    <app-t-marketing>
+                                        <h3 top>Marketing</h3>
+                                        <h3 bottom>Bottom</h3>
+                                    </app-t-marketing>
                                 </p-accordion-content>
                             </ng-container>
                     </p-accordion-panel>
@@ -74,7 +77,7 @@
                 @case('decForm'){
                     <p-accordion-panel [value]="tab.value" *ngIf="tab.status">
                             <ng-container>
-                                <p-accordion-header>{{ tab.title }} </p-accordion-header>
+                                <p-accordion-header>{{ tab.title }}  {{testingForm.get('decForm')?.status }} </p-accordion-header>
                                 <p-accordion-content>
                                     <app-t-declaration formGroupName="decForm">
                                         <h4>Declaration</h4>
