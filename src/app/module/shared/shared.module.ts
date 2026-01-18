@@ -25,6 +25,8 @@ import { AccordionModule } from 'primeng/accordion';
 import { MessageModule } from 'primeng/message';
 import { SelectModule } from 'primeng/select';
 import { TagModule } from 'primeng/tag';
+import { TexualDirective } from './directives/texual.directive';
+import { OnlyNumbersDirective } from './directives/only-numbers.directive';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { TagModule } from 'primeng/tag';
     SidebarModule,
     PanelMenuModule,
     ButtonModule,
+    TexualDirective,
+    OnlyNumbersDirective,
 
     ReactiveFormsModule,
     MenubarModule,
@@ -54,7 +58,6 @@ import { TagModule } from 'primeng/tag';
     MessageModule,
     SelectModule,
     FormsModule,
-
   ],
   exports:[
     CommonModule,
@@ -66,6 +69,8 @@ import { TagModule } from 'primeng/tag';
     STextareaComponent,
 
     ReactiveFormsModule,
+    TexualDirective,
+    OnlyNumbersDirective,
 
     MenubarModule,
     BreadcrumbModule,

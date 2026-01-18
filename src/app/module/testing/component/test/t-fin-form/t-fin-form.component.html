@@ -3,7 +3,7 @@
     <div formArrayName="finDetail">
         <div *ngFor="let fdv of finDetailVal.controls; let i=index" [formGroupName]="i">
             <div class="row">
-                <input type="text" formControlName="hospName" placeholder="Hospital name"><br/>
+                <input type="text" appTexual formControlName="hospName" placeholder="Hospital name"><br/>
                 <button (click)="defaultHospital()">Book Hospital</button>
                 <button (click)="removeDefault(i)" *ngIf="i>0">X</button>
 
@@ -14,9 +14,9 @@
                         <div *ngFor="let atd of appointmentDetails(i).controls; let j=index" [formGroupName]="j">
                              <label>Appointment {{j+1}}</label>
                             <div class="row row-container">
-                                <input type="number" formControlName="firtAmt" placeholder="Total Amount">
-                                <input type="number" formControlName="secAmt" #paid placeholder="Paid Amount" (input)="paidAmount(paid.value,i,j)">
-                                <input type="number" formControlName="thirdAmt" placeholder="Balance amount">
+                                <input type="text" appNumb formControlName="firtAmt" placeholder="Total Amount">
+                                <input type="text" appNumb formControlName="secAmt" #paid placeholder="Paid Amount" (input)="paidAmount(paid.value,i,j)">
+                                <input type="text" appNumb formControlName="thirdAmt" placeholder="Balance amount">
                                 <button (click)="removeAppointment(i,j)">X</button>
                             </div>
                         </div>

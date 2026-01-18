@@ -18,7 +18,6 @@ export class TFinFormComponent {
 
   ngOnInit(){
     this.finFormDetails = this.fgd.control.get(this.formGroupName) as FormGroup;
-    console.log(this.finFormDetails);
     this.finDetailVal.clear();
     this.defaultHospital();
   }
