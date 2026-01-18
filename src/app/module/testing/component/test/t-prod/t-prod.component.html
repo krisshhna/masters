@@ -1,0 +1,19 @@
+<ng-content select="[topProd]"></ng-content>
+<form [formGroup]="prodForms">
+    <div formArrayName="prodDet">
+        <div *ngFor="let pdl of prodDetailsListing.controls; let a=index" [formGroupName]="a">
+            <div class="row">
+                <label>{{prodDetailsListing.at(a).get('labels')?.value}}</label>
+
+                <div formArrayName="listings">
+                    <div class="row-container">
+                        <div *ngFor="let ldc of listingDetails(a).controls; let j=index" [formGroupName]="j">
+                            <input type="text" formControlName="details">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<ng-content select="[botProd]"></ng-content>

@@ -39,13 +39,13 @@
                 }
 
                 @case('markForm'){
-                    <p-accordion-panel [value]="tab.value" *ngIf="tab.status" formGroupName="markForm">
+                    <p-accordion-panel [value]="tab.value" *ngIf="tab.status">
                             <ng-container>
-                                <p-accordion-header>{{ tab.title }} </p-accordion-header>
+                                <p-accordion-header>{{ tab.title }} {{testingForm.get('markForm')?.status}} </p-accordion-header>
                                 <p-accordion-content>
-                                    <app-t-marketing>
-                                        <h3 top>Marketing</h3>
-                                        <h3 bottom>Bottom</h3>
+                                    <app-t-marketing formGroupName="markForm">
+                                        <h3 top>Marketing top</h3>
+                                        <h3 bot>Marketing bottom</h3>
                                     </app-t-marketing>
                                 </p-accordion-content>
                             </ng-container>
@@ -53,22 +53,28 @@
                 }
 
                 @case('prodForm'){
-                    <p-accordion-panel [value]="tab.value" *ngIf="tab.status" formGroupName="prodForm">
+                    <p-accordion-panel [value]="tab.value" *ngIf="tab.status">
                             <ng-container>
-                                <p-accordion-header>{{ tab.title }} </p-accordion-header>
+                                <p-accordion-header>{{ tab.title }} {{testingForm.get('prodForm')?.status}} </p-accordion-header>
                                 <p-accordion-content>
-                                    <input type="text" formControlName="email" [placeholder]="tab.title">
+                                    <app-t-prod formGroupName="prodForm">
+                                        <h3 topProd>Top Production</h3>
+                                        <h3 botProd>Bottom Production</h3>
+                                    </app-t-prod>
                                 </p-accordion-content>
                             </ng-container>
                     </p-accordion-panel>
                 }
 
-                @case('resForm'){
-                    <p-accordion-panel [value]="tab.value" *ngIf="tab.status" formGroupName="resForm">
+                @case('finForm'){
+                    <p-accordion-panel [value]="tab.value" *ngIf="tab.status">
                             <ng-container>
-                                <p-accordion-header>{{ tab.title }} </p-accordion-header>
+                                <p-accordion-header>{{ tab.title }} {{testingForm.get('finForm')?.status}} </p-accordion-header>
                                 <p-accordion-content>
-                                    <input type="text" formControlName="phone" [placeholder]="tab.title">
+                                    <app-t-fin-form formGroupName="finForm">
+                                        <h3 topFin>Finance top</h3>
+                                        <h3 botFin>Finance Bottom</h3>
+                                    </app-t-fin-form>
                                 </p-accordion-content>
                             </ng-container>
                     </p-accordion-panel>

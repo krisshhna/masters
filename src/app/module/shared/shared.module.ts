@@ -54,6 +54,7 @@ import { TagModule } from 'primeng/tag';
     MessageModule,
     SelectModule,
     FormsModule,
+
   ],
   exports:[
     CommonModule,
@@ -80,7 +81,7 @@ import { TagModule } from 'primeng/tag';
     TagModule,
     MessageModule,
     SelectModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class SharedModule { }

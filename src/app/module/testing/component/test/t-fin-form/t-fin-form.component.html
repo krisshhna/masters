@@ -1,0 +1,38 @@
+<ng-content select="[topFin]"></ng-content>
+<form [formGroup]="finFormDetails">
+    <div formArrayName="finDetail">
+        <div *ngFor="let fdv of finDetailVal.controls; let i=index" [formGroupName]="i">
+            <div class="row">
+                <input type="text" formControlName="hospName" placeholder="Hospital name"><br/>
+                <button (click)="defaultHospital()">Book Hospital</button>
+                <button (click)="removeDefault(i)" *ngIf="i>0">X</button>
+
+                <h5>{{finDetailVal.at(i).get('hospName')?.value}}</h5>
+                <button (click)="addAppointments(i)">Book Appointment {{i}}</button>
+                <div formArrayName="appointment">
+                    <div class="">
+                        <div *ngFor="let atd of appointmentDetails(i).controls; let j=index" [formGroupName]="j">
+                             <label>Appointment {{j+1}}</label>
+                            <div class="row row-container">
+                                <input type="number" formControlName="firtAmt" placeholder="Total Amount">
+                                <input type="number" formControlName="secAmt" #paid placeholder="Paid Amount" (input)="paidAmount(paid.value,i,j)">
+                                <input type="number" formControlName="thirdAmt" placeholder="Balance amount">
+                                <button (click)="removeAppointment(i,j)">X</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="row-container" *ngIf="total.secAmt > 0 && total.thirdAmt > 0">
+            Total : Rs {{total.firtAmt}} /-
+            Paid  : Rs {{total.secAmt}} /- 
+            Pend  : Rs {{total.thirdAmt}} /-
+        </div>
+    </div>
+</form>
+<ng-content select="[botFin]"></ng-content>

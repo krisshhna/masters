@@ -11,6 +11,8 @@ import { TBasicFormComponent } from './component/test/t-basic-form/t-basic-form.
 import { TAccFormComponent } from './component/test/t-acc-form/t-acc-form.component';
 import { TDeclarationComponent } from './component/test/t-declaration/t-declaration.component';
 import { TMarketingComponent } from './component/test/t-marketing/t-marketing.component';
+import { TProdComponent } from './component/test/t-prod/t-prod.component';
+import { TFinFormComponent } from './component/test/t-fin-form/t-fin-form.component';
 
 const routes: Routes = [
   {
@@ -31,5 +33,5 @@ const routes: Routes = [
 export class TestingRoutingModule { }
 export const TestComponent = [
   TDashboardComponent, TTest1Component, TLoginComponent, TRegisterComponent, BasicFormComponent, AddressComponent, ProfessionalComponent,
-  TBasicFormComponent, TAccFormComponent, TDeclarationComponent, TMarketingComponent
+  TBasicFormComponent, TAccFormComponent, TDeclarationComponent, TMarketingComponent, TProdComponent, TFinFormComponent
 ];

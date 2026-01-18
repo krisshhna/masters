@@ -13,14 +13,14 @@ export class TTest1Component {
     {name:'Accounting 1', key:'A', value:1},
     {name:'Marketing 2', key:'M', value:2},
     {name:'Production 3', key:'P', value:3},
-    {name:'Research 4', key:'R', value:4},
+    {name:'Finance 4', key:'R', value:4},
   ];
   tabs = [
       { title: 'Basic Information', content: 'Basic Forms declaration', value: 0, status:true, formName:'basicForm'},
       { title: this.checks[0].name, content: 'Content 2', value: 1, status:false, formName:'accForm'},
       { title: this.checks[1].name, content: 'Content 3', value: 2, status:false, formName:'markForm'},
       { title: this.checks[2].name, content: 'Content 4', value: 3, status:false, formName:'prodForm'},
-      { title: this.checks[3].name, content: 'Content 4', value: 4, status:false, formName:'resForm'},
+      { title: this.checks[3].name, content: 'Content 4', value: 4, status:false, formName:'finForm'},
       { title: 'Declaration', content: 'Content 4', value: 5, status:true, formName:'decForm'},
   ];
 
@@ -46,14 +46,20 @@ export class TTest1Component {
       markForm:   this.fb.group({
         markDet:  this.fb.array([]),
       }),
-      // prodForm:   this.fb.group({email:['',[Validators.required]]}),
-      // resForm:    this.fb.group({phone:['',[Validators.required]]}),
-      decForm:    this.fb.group({dec: this.fb.array([])}),
+      prodForm:   this.fb.group({
+        prodDet:  this.fb.array([]),
+      }),
+      finForm:    this.fb.group({
+        finDetail:this.fb.array([]),
+      }),
+      decForm:    this.fb.group({
+        dec: this.fb.array([])
+      }),
     });
   }
 
   ngOnInit() {
-      this.selectedCategories = [this.checks[0]];
+      this.selectedCategories = [this.checks[3]];
       this.changeTab(this.selectedCategories);
   }
 

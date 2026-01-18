@@ -1,2 +1,18 @@
 <ng-content select="[top]"></ng-content>
-<ng-content select="[bottom]"></ng-content>
+<form [formGroup]="market">
+    <div formArrayName="markDet">
+        <div *ngFor="let mc of marketDetails.controls; let a=index" [formGroupName]="a">
+            <div class="row">
+                <label>{{marketDetails.at(a).get('textLabel')?.value}}</label>
+                <div formArrayName="textValue">
+                    <div class="row-container">
+                        <div *ngFor="let acLa of markTextValue(a).controls; let k=index" [formGroupName]="k">
+                                <input type="text" formControlName="descriptions">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<ng-content select="[bot]"></ng-content>
